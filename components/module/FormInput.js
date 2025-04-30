@@ -1,4 +1,5 @@
-function FormInput({ name, label, type, value, onchange }) {
+function FormInput({ name, label, type, value, onChange }) {
+  
   return (
     <div className="form-input">
       <label htmlFor={name}>{label}</label>
@@ -7,7 +8,7 @@ function FormInput({ name, label, type, value, onchange }) {
         name={name}
         type={type}
         value={value}
-        onchange={onchange}
+        onChange={onChange}
       />
     </div>
   );
