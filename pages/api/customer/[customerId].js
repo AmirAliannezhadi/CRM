@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   if (req.method === "GET") {
     const { customerId } = req.query;
     try {
-      const customer = Customer.findById(customerId);
+      const customer = await Customer.findById(customerId);
       res
         .status(200)
         .json({ status: "Success", message: "Data gote", data: customer });
