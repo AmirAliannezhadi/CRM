@@ -14,9 +14,12 @@ export default async function handler(req, res) {
 
   if (req.method === "PATCH") {
     const { customerId } = req.query;
+    console.log({customerId});
     const data = req.body.data;
+    console.log(data);
     try {
       const customer = await Customer.findOne({ _id: customerId });
+      console.log(customer);
       customer.name = data.name;
       customer.lastName = data.lastName;
       customer.email = data.email;
@@ -25,7 +28,7 @@ export default async function handler(req, res) {
       customer.postalCode = data.postalCode;
       customer.date = data.date;
       customer.products = data.products;
-      customer.updatedAt = date.now();
+      customer.updatedAt = Date.now();
       customer.save();
       res
         .status(201)
